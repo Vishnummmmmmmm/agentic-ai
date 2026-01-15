@@ -1,161 +1,200 @@
-🚀 Agentic AI System (Production-Ready)
-📌 Overview
+===========================================================
+        AGENTIC AI SYSTEM — PRODUCTION READY
+===========================================================
 
-This project is a custom-built Agentic AI system designed to autonomously answer user questions using controlled logic, tools, and memory, instead of relying on large black-box models like ChatGPT.
+A modular, tool-driven AI system that answers questions
+using controlled logic, memory, and verified sources.
 
-It is not a chatbot wrapper and does not depend on ChatGPT or OpenAI APIs.
+NOT a chatbot.
+NOT ChatGPT.
+NOT a black-box model.
 
-The system:
+===========================================================
+OVERVIEW
+===========================================================
 
-Accepts any user question
+✔ Accepts any user question
+✔ Searches trusted external sources
+✔ Generates structured answers
+✔ Returns answer + sources
+✔ Deployable as a scalable API
+✔ Runs independently of ChatGPT / OpenAI
 
-Searches trusted sources
+===========================================================
+API KEY CONFIGURATION
+===========================================================
 
-Generates an answer
+For security reasons, API keys are NOT included.
 
-Returns both the answer and its sources
+Create a `.env` file in the project root:
 
-Can be deployed as a scalable production API
+    API_KEY=your_own_api_key_here
 
-🧠 What Problem Does This Solve?
+✔ `.env` is ignored via .gitignore
+✔ API key is loaded at runtime
+✔ Users must provide their own key
 
-Traditional chatbots:
+===========================================================
+PROBLEM THIS SOLVES
+===========================================================
 
-Hallucinate answers
+Traditional Chatbots:
+- Hallucinate answers
+- No source verification
+- Expensive to scale
+- No workflow control
+- Poor enterprise fit
 
-Cannot verify sources
+This System:
+- Uses explicit reasoning
+- Calls tools intentionally
+- Stores memory
+- Returns traceable sources
+- Designed for production
 
-Are expensive
+===========================================================
+HOW IT WORKS
+===========================================================
 
-Are not controllable
+[ User Question ]
+        |
+        v
+[ Planner Agent ]
+        |
+        v
+[ Executor Agent ]
+        |
+        v
+[ Tools + Search ]
+        |
+        v
+[ Memory Store ]
+        |
+        v
+[ Answer + Sources ]
 
-Do not follow enterprise workflows
+===========================================================
+WHY MULTIPLE FILES?
+===========================================================
 
-This system solves that by:
+Single File System ❌
+- Hard to maintain
+- Not scalable
+- Breaks easily
+- No separation of logic
 
-Using explicit reasoning steps
+Multi-File System ✅
+- Clean architecture
+- Industry standard
+- Scalable
+- Maintainable
 
-Calling tools deliberately
+-----------------------------------------------------------
+FILE STRUCTURE
+-----------------------------------------------------------
 
-Storing and reusing memory
+api.py                 -> API entry point
+agents/planner.py      -> Decision logic
+agents/executor.py     -> Task execution
+tools/web_search.py    -> External data access
+memory/                -> Knowledge storage
+Dockerfile             -> Production container
 
-Returning traceable outputs
+===========================================================
+CHATBOT vs THIS SYSTEM
+===========================================================
 
-Running independently of ChatGPT
++----------------------+----------------+----------------+
+| Feature              | Chatbot        | This System   |
++----------------------+----------------+----------------+
+| Pretrained replies   | YES            | NO             |
+| Tool usage           | NO             | YES            |
+| Source tracking      | NO             | YES            |
+| Memory               | NO             | YES            |
+| Autonomous actions   | NO             | YES            |
+| Production ready     | NO             | YES            |
++----------------------+----------------+----------------+
 
-⚙️ How It Works (High Level)
+Chatbots talk.
+This system ACTS.
 
-User sends a question via API
+===========================================================
+CHATGPT vs THIS SYSTEM
+===========================================================
 
-Planner decides what needs to be done
++----------------------+----------------+----------------+
+| Aspect               | ChatGPT        | This System   |
++----------------------+----------------+----------------+
+| Black-box model      | YES            | NO             |
+| Custom logic         | NO             | YES            |
+| Cost control         | NO             | YES            |
+| Data privacy         | NO             | YES            |
+| Enterprise workflows | NO             | YES            |
+| Offline / Private    | NO             | YES            |
++----------------------+----------------+----------------+
 
-Executor performs actions (search, fetch data)
+ChatGPT = General Intelligence
+This     = Task-Driven Intelligence
 
-Memory stores useful results
+===========================================================
+USE CASES
+===========================================================
 
-Final answer is returned with sources
+✔ Enterprise automation
+✔ Internal knowledge systems
+✔ Compliance-safe AI
+✔ Research assistants
+✔ Autonomous agents
+✔ Finance / Legal / Healthcare AI
 
-🧩 Why Multiple Files? Why Not One File?
-❌ Single File Problems
-
-Hard to maintain
-
-Impossible to scale
-
-No separation of responsibility
-
-Breaks easily in production
-
-✅ Multi-File Architecture Benefits
-File	Responsibility
-api.py	API entry point
-agents/planner.py	Decides actions
-agents/executor.py	Executes tasks
-tools/web_search.py	External data
-memory/	Knowledge storage
-Dockerfile	Production container
-
-This mirrors real industry systems used by companies like Google, Amazon, and Nvidia.
-
-ChatGPT is general intelligence.
-This system is task-driven intelligence.
-
-🎯 Where Is This Used?
-
-Enterprise automation
-
-Internal knowledge systems
-
-Compliance-safe AI
-
-Research assistants
-
-Autonomous agents
-
-Domain-specific AI (finance, legal, healthcare)
-
-🌐 API & Swagger
-
-Once running, access:
+===========================================================
+API & SWAGGER
+===========================================================
 
 Swagger UI:
-
 http://127.0.0.1:8000/docs
 
-
 Health Check:
-
 http://127.0.0.1:8000/
 
-🐳 Docker (Production Deployment)
+===========================================================
+DOCKER DEPLOYMENT
+===========================================================
 
-Build image:
-
+Build:
 docker build -t agentic-ai .
 
-
-Run container:
-
+Run:
 docker run -p 8000:8000 agentic-ai
 
+===========================================================
+TECH STACK
+===========================================================
 
-Uses:
+- Python 3.11
+- FastAPI
+- Gunicorn + Uvicorn
+- Docker
+- Sentence Transformers
+- Modular Agent Architecture
 
-Gunicorn
+===========================================================
+WHY THIS PROJECT EXISTS
+===========================================================
 
-Uvicorn workers
+✔ Demonstrates Agentic AI
+✔ Shows real system design
+✔ Production-ready architecture
+✔ Real-world AI engineering
 
-FastAPI
+THIS IS NOT A DEMO CHATBOT.
+THIS IS AN AI SYSTEM.
 
-📦 Tech Stack
-
-Python 3.11
-
-FastAPI
-
-Uvicorn + Gunicorn
-
-Docker
-
-Sentence Transformers
-
-Modular Agent Architecture
-
-🚀 Why This Exists
-
-This project demonstrates:
-
-Agentic AI
-
-System design
-
-Production readiness
-
-Real-world AI engineering
-
-It is not a demo chatbot — it is an AI system.
-
-🧑‍💻 Author
+===========================================================
+AUTHOR
+===========================================================
 
 Vishnu
 Building agentic systems, not chatbots.
+
+===========================================================
